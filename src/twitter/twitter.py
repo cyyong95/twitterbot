@@ -1,5 +1,6 @@
 import tweepy
-from .helpers import validate_send_tweet
+from .helpers import validate_send_tweet, \
+    format_user_timeline_response
 
 
 class TwitterAPI:
@@ -16,6 +17,22 @@ class TwitterAPI:
 
         TwitterAPI.t_api.update_status(text)
 
+    def get_user_timeline_tweets(self,
+                          username: str,
+                          count: int,
+                          include_retweets: bool,
+                          include_replies: bool) -> list[str]:
+
+        response: list = TwitterAPI.t_api.user_timeline(
+            screen_name=username,
+            count=count,
+            include_rts=include_retweets,
+            exclude_replies=not include_replies)
+
+        user_tweets: list[str] = format_user_timeline_response(response)
+
+        return user_tweets
+
     def reauthenticate(self, config: dict) -> None:
         self.__authenticate(config)
 
@@ -23,3 +40,6 @@ class TwitterAPI:
         auth = tweepy.OAuthHandler(config["api_key"], config["api_key_secret"])
         auth.set_access_token(config["access_token"], config["access_token_secret"])
         TwitterAPI.t_api = tweepy.API(auth)
+
+        a = tweepy.API(auth)
+        a.user_timeline()
