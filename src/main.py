@@ -8,7 +8,14 @@ def main() -> None:
 
     twitter_api = twitter.TwitterAPI(config)
 
-    twitter_api.send_tweet("Hello world!")
+    user_tweets: list[str] = twitter_api.get_user_timeline_tweets(
+        username="cy_yongg",
+        count=1,
+        include_retweets=False,
+        include_replies=False)
+
+    for user_tweet in user_tweets:
+        print(user_tweet)
 
 
 if __name__ == '__main__':
