@@ -40,6 +40,3 @@ class TwitterAPI:
         auth = tweepy.OAuthHandler(config["api_key"], config["api_key_secret"])
         auth.set_access_token(config["access_token"], config["access_token_secret"])
         TwitterAPI.t_api = tweepy.API(auth)
-
-        a = tweepy.API(auth)
-        a.user_timeline()
