@@ -21,7 +21,7 @@ class TwitterAPI:
                           username: str,
                           count: int,
                           include_retweets: bool,
-                          include_replies: bool) -> list[str]:
+                          include_replies: bool) -> list[dict]:
 
         response: list = TwitterAPI.t_api.user_timeline(
             screen_name=username,
@@ -29,7 +29,7 @@ class TwitterAPI:
             include_rts=include_retweets,
             exclude_replies=not include_replies)
 
-        user_tweets: list[str] = format_user_timeline_response(response)
+        user_tweets: list[dict] = format_user_timeline_response(response)
 
         return user_tweets
 
