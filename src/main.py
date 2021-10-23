@@ -8,7 +8,7 @@ def main() -> None:
 
     twitter_api = twitter.TwitterAPI(config)
 
-    user_tweets: list[str] = twitter_api.get_user_timeline_tweets(
+    user_tweets: list[dict] = twitter_api.get_user_timeline_tweets(
         username="cy_yongg",
         count=1,
         include_retweets=False,
@@ -16,6 +16,7 @@ def main() -> None:
 
     for user_tweet in user_tweets:
         print(user_tweet)
+        print("\n")
 
 
 if __name__ == '__main__':
