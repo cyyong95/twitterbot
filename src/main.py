@@ -10,13 +10,16 @@ def main() -> None:
 
     user_tweets: list[dict] = twitter_api.get_user_timeline_tweets(
         username="cy_yongg",
-        count=1,
+        count=2,
         include_retweets=False,
-        include_replies=False)
+        include_replies=True)
 
     for user_tweet in user_tweets:
         print(user_tweet)
-        print("\n")
+
+    tweet = twitter_api.get_tweet_by_id(tweet_id=1452162846607826955)
+
+    print(tweet)
 
 
 if __name__ == '__main__':

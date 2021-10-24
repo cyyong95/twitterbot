@@ -27,3 +27,25 @@ def format_user_timeline_response(response: list) -> list[dict]:
 
     return user_tweets
 
+
+def format_get_tweet_by_id(response) -> dict:
+
+    response_data = response.data
+    response_includes_tweets = response.includes.get('tweets')
+
+    parent_tweets: list[dict] = []
+
+    for tweet in response_includes_tweets:
+        parent_tweets.append({
+            "parent_tweet_id": tweet.id,
+            "parent_tweet_text": tweet.text
+        })
+
+    tweet: dict = {
+        "tweet_id": response_data.id,
+        "tweet_text": response_data.text,
+        "parent_tweets": parent_tweets
+    }
+
+    return tweet
+
