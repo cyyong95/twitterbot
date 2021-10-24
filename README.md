@@ -13,7 +13,8 @@ with the syntax of
   "api_key": "<insert api key here>",
   "api_key_secret": "<insert api key secret here>",
   "access_token": "<insert access token here>",
-  "access_token_secret": "<insert access token secret here>"
+  "access_token_secret": "<insert access token secret here>",
+  "bearer_token": "<insert bearer token here>"
 }
 ```
 3. TBC ...
