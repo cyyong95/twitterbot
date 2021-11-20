@@ -1,5 +1,5 @@
 import helpers
-import twitter.twitter as twitter
+import twitter
 
 
 def main() -> None:
