@@ -1,8 +1,6 @@
 # Twitter bot
 
-This is a Twitter bot made for the purpose of testing Twitter's API. 
-
-Implementation is ongoing and is subject to change...
+This is a Twitter bot made for the purpose of testing Twitter's API
 
 ## Setup
 1. Clone the repo
