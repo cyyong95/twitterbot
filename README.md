@@ -17,7 +17,18 @@ with the syntax of
   "bearer_token": "<insert bearer token here>"
 }
 ```
-3. TBC ...
+3. Create a virtual environment
+```
+python3 -m venv <name of environment>
+```
+
+4. Run requirements.txt
+```
+pip install -r requirements.txt
+```
+
+## Future Ideas
+1. Make this into a Flask or FastAPI app to perform actions through implemented API
 
 ## Contribution guidelines
 1. Each contribution should be in a separate branch
